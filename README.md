@@ -5,6 +5,7 @@ the Special Milestone as a combination of two seperate milestone tasks.
 
 ##Task 1: Setup a Ganglia Monitoring System across the deployed servers.
 
+Ganglia is used for monitoring the CPU, I/O Statistics, and Network performance of servers in a distributed environment.
 A ganglia Monitoring system has two components 
 - 1. A master called Gmetad
 - 2. Multiple slaves --> each of which is a deployment server (in our case 2 Nodes)
@@ -73,6 +74,8 @@ sudo apt-get install -y ganglia-monitor
 ```
 sudo vi /etc/ganglia/gmond.conf
 
+//////////////////////////////////
+
 [...]
 cluster {
   name = "devops_server_cluster"
@@ -80,6 +83,8 @@ cluster {
   latlong = "unspecified"
   url = "unspecified"
 [...]
+
+///////////////////////////////////
 
 [...]
 udp_send_channel {
@@ -90,7 +95,7 @@ udp_send_channel {
 }
 [...]
 
-
+///////////////////////////////////
 Comment the udp_recv_channels block
 ```
 
@@ -98,3 +103,5 @@ Comment the udp_recv_channels block
 ```
 sudo service ganglia-monitor restart
 ```
+
+Screenshot of the Ganglia Monitoring Tool.
