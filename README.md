@@ -59,3 +59,42 @@ udp_recv_channel {
 ```
 sudo service ganglia-monitor restart && sudo service gmetad restart && sudo service apache2 restart
 ```
+####The slave setup steps are as follows:
+
+The below steps have to be manually performed on all slave nodes.
+
+######Setup:
+
+- 1. Installing the Ganglia Gmond process on Slaves
+```
+sudo apt-get install -y ganglia-monitor
+```
+- 2. Similar to the master edit the slave config file
+```
+sudo vi /etc/ganglia/gmond.conf
+
+[...]
+cluster {
+  name = "devops_server_cluster"
+  owner = "unspecified"
+  latlong = "unspecified"
+  url = "unspecified"
+[...]
+
+[...]
+udp_send_channel {
+  #mcast_join = 239.2.11.71   ## Commented this line
+  host = x.x.x.x   ## IP address of master node
+  port = 8649
+  ttl = 1
+}
+[...]
+
+
+Comment the udp_recv_channels block
+```
+
+- 3. Restarting the monitors on all slaves
+```
+sudo service ganglia-monitor restart
+```
