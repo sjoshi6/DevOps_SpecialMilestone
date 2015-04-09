@@ -13,12 +13,17 @@ A ganglia Monitoring system has two components
 
 Before the setup begins we need a user with root permission to edit the conf files.
 
-########Setup:
+######Setup:
 
-- 1. sudo apt-get install -y ganglia-monitor rrdtool gmetad ganglia-webfrontend
-- 2. sudo cp /etc/ganglia-webfrontend/apache.conf /etc/apache2/sites-enabled/ganglia.conf
+- 1. Installing the Ganglia master and PHP frontend 
+```
+sudo apt-get install -y ganglia-monitor rrdtool gmetad ganglia-webfrontend
+```
+- 2. Copying the necessary files 
+```
+sudo cp /etc/ganglia-webfrontend/apache.conf /etc/apache2/sites-enabled/ganglia.conf
+```
 - 3. sudo vi /etc/ganglia/gmetad.conf    --> Edit the code snippet shown below
-
 ```
 data_source "devops_server_cluster" localhost
 ```
@@ -27,7 +32,7 @@ data_source "devops_server_cluster" localhost
 ```
 [...]
 cluster {
-  name = "my cluster" ## use the name from gmetad.conf
+  name = "devops_server_cluster" 
   owner = "unspecified"
   latlong = "unspecified"
   url = "unspecified"
@@ -36,7 +41,7 @@ cluster {
 //////////////////////////////////////////////////////
 [...]
 udp_send_channel   {
-  #mcast_join = 239.2.11.71 ## comment out
+  #mcast_join = 239.2.11.71 ## commented out this line
   host = localhost
   port = 8649
   ttl = 1
@@ -45,8 +50,12 @@ udp_send_channel   {
 /////////////////////////////////////////////////////
 [...]
 udp_recv_channel {
-  #mcast_join = 239.2.11.71 ## comment out
+  #mcast_join = 239.2.11.71 ## commented out this line
   port = 8649
-  #bind = 239.2.11.71 ## comment out
+  #bind = 239.2.11.71 ## commented out this line
 }
+```
+- 5. Restart Ganglia-monitor, Gmetad and Apache.
+```
+sudo service ganglia-monitor restart && sudo service gmetad restart && sudo service apache2 restart
 ```
