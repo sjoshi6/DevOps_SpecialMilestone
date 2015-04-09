@@ -104,4 +104,21 @@ Comment the udp_recv_channels block
 sudo service ganglia-monitor restart
 ```
 
-Screenshot of the Ganglia Monitoring Tool.
+####Screenshot of the Ganglia Monitoring Tool Summary.
+
+The below screenshot shows four graphs
+- 1. Total load on all the servers (Top Left)
+- 2. Memory Utilization (Top Right)
+- 2. CPU Utilization (Bottom Left)
+- 3. Network Utilization (Bottom Right)
+
+![ScreenShot](devops_server_cluster.png)
+
+####Screenshot of Detailed graphs about the localhost
+
+![ScreenShot](localhost.png)
+
+####Screenshot of Stacked Info
+
+![ScreenShot](stackedinfo.png)
+
