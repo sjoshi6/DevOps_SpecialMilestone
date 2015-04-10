@@ -155,7 +155,7 @@ The below screenshots display the effect of burn_monkey on CPU utilization. The 
 
 Screenshot:
 - 1. Burn Monkey not Deployed:
-![ScreenShot](no_burn.png)
+![ScreenShot](no_burn_2.png)
 
 - 2. Burn Monkey in action
-![ScreenShot](Output_of_the_top_command.png)
+![ScreenShot](Output_of_the_top_command_2.png)
