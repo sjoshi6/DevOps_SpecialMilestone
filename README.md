@@ -122,3 +122,40 @@ The below screenshot shows four graphs
 
 ![ScreenShot](stackedinfo.png)
 
+##Task 2: Implementing dummy monkeys from the Simian Army.
+
+#### Monkey 1: The Burning Monkey
+
+The job of this monkey is to launch a small process on the server node that burns out the CPU cycles of the server and de prioritzes the original server task.
+
+The script used for burning CPU cycles on server is as follows:
+```
+#!/bin/bash
+
+count=1
+
+while [ true ]
+do
+  echo "Counter $count "
+  count=$(( $count + 1 ))
+done
+```
+The Monkey can be found in the script named **burn_monkey.sh**
+We deploy this monkey from a remote location into our EC2 Server infrastructure by using SCP and SSH.
+This monkey only acts on the targeted node.
+
+It accepts as a parameter the ssh .pem key of the targeted EC2 instance and its IP Address.
+
+```
+Usage:
+
+./burn_monkey.sh sjoshi6.pem 52.11.146.198
+```
+The below screenshots display the effect of burn_monkey on CPU utilization. The output is of the 'top' Unix command.
+
+Screenshot:
+- 1. Burn Monkey not Deployed:
+![ScreenShot](no_burn.png)
+
+- 2. Burn Monkey in action
+![ScreenShot](Output_of_the_top_command.png)
