@@ -122,9 +122,42 @@ The below screenshot shows four graphs
 
 ![ScreenShot](stackedinfo.png)
 
+
+
 ##Task 2: Implementing dummy monkeys from the Simian Army.
 
-#### Monkey 1: The Burning Monkey
+For this task we have implemented two Monkeys - A Chaos Monkey, A Burning Monkey
+
+
+#### Monkey 1: The Chaos Monkey
+
+The code can be found in the file named: **chaos_monkey.py**
+
+Our implementation of the Chaos Monkey uses Python - Boto module.
+
+- The program accepts as input a **target location**, **developer access key** , **secret key**
+- The utility connects to AWS and determines all active/running instances and produces a list.
+- It prompts the user to insert a target OS whose instances will be destroyed at random.
+- The utility selects a random instance from the chosen OS and terminates the machine.
+
+######Usage:
+```
+python chaos_monkey.py us-west-2 AKIAJRNTDR54LET6A 15LVLCDeVT9gj5Fap16Uu
+```
+
+######Before running Chaos Monkey
+![ScreenShot](Before_ChaosMonkey.png)
+
+######Program in action
+![ScreenShot](Execution_ChaosMonkey_2.png)
+
+######Screenshot of AWS displaying shutdown of instances due to chaos monkey:
+![ScreenShot](After_ChaosMonkey.png)
+
+
+
+
+#### Monkey 2: The Burning Monkey
 
 The job of this monkey is to launch a small process on the server node that burns out the CPU cycles of the server and de prioritzes the original server task.
 
