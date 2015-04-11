@@ -122,7 +122,12 @@ The below screenshot shows four graphs
 
 ![ScreenShot](stackedinfo.png)
 
+
+
 ##Task 2: Implementing dummy monkeys from the Simian Army.
+
+For this task we have implemented two Monkeys - A Chaos Monkey, A Burning Monkey
+
 
 #### Monkey 1: The Chaos Monkey
 
@@ -148,6 +153,8 @@ python chaos_monkey.py us-west-2 AKIAJRNTDR54LET6A 15LVLCDeVT9gj5Fap16Uu
 
 ######Screenshot of AWS displaying shutdown of instances due to chaos monkey:
 ![ScreenShot](After_ChaosMonkey.png)
+
+
 
 
 #### Monkey 2: The Burning Monkey
