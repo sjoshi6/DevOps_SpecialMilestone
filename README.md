@@ -133,7 +133,7 @@ For this task we have implemented two Monkeys - A Chaos Monkey, A Burning Monkey
 
 The code can be found in the file named: **chaos_monkey.py**
 
-Our implementation of the Choas Monkey uses Python - Boto module.
+Our implementation of the Chaos Monkey uses Python - Boto module.
 
 - The program accepts as input a **target location**, **developer access key** , **secret key**
 - The utility connects to AWS and determines all active/running instances and produces a list.
@@ -149,7 +149,7 @@ python chaos_monkey.py us-west-2 AKIAJRNTDR54LET6A 15LVLCDeVT9gj5Fap16Uu
 ![ScreenShot](Before_ChaosMonkey.png)
 
 ######Program in action
-![ScreenShot](Execution_ChaosMonkey.png)
+![ScreenShot](Execution_ChaosMonkey_2.png)
 
 ######Screenshot of AWS displaying shutdown of instances due to chaos monkey:
 ![ScreenShot](After_ChaosMonkey.png)
