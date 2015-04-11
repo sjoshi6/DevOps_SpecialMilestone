@@ -154,8 +154,10 @@ Usage:
 The below screenshots display the effect of burn_monkey on CPU utilization. The output is of the 'top' Unix command.
 
 Screenshot:
-- 1. Burn Monkey not Deployed:
-![ScreenShot](no_burn.png)
+-  1.Burn Monkey not Deployed:
 
-- 2. Burn Monkey in action
-![ScreenShot](Output_of_the_top_command.png)
+![ScreenShot](no_burn_2.png)
+
+-  2.Burn Monkey in action
+
+![ScreenShot](Output_of_the_top_command_2.png)
