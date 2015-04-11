@@ -16,14 +16,15 @@ def chaos_monkey():
         instances = reservation.instances
 
         for instance in instances:
-            instance_list.append(instance)
+            if instance.state == "running":
+                instance_list.append(instance)
 
-    print("Below is the list of available os/ instance id's specify which one to kill?")
+    print("Below is the list of Running instances ")
 
     for instance in instance_list:
         print(str(instance.id)+ "    "+ str(instance.instance_type)+ " "+str(instance.image_id))
 
-    print("Specify an image id")
+    print("Specify an image id whose machine will be destroyed at random")
     image_id = input()
 
     destroy_list = []
