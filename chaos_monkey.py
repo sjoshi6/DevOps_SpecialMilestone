@@ -2,6 +2,12 @@ import boto.ec2
 import sys
 import random
 
+
+######################################################################
+#### Usage : python chaos_monkey.py us-west-2 accesskey secretkey ####
+######################################################################
+
+
 def chaos_monkey():
     conn = boto.ec2.connect_to_region(sys.argv[1],aws_access_key_id=sys.argv[2], aws_secret_access_key=sys.argv[3])
     reservations = conn.get_all_reservations()
@@ -27,7 +33,17 @@ def chaos_monkey():
             destroy_list.append(instance)
 
     destroy_number = random.randint(0, len(destroy_list)-1)
+
     print(destroy_number)
+
+    print("One of the below instances will be destoryed at random !")
+
     print(destroy_list)
+
+    destroy_instance = destroy_list[destroy_number]
+
+    # Terminating a random instance
+
+    conn.terminate_instances(instance_ids=[destroy_instance.id])
 
 chaos_monkey()
