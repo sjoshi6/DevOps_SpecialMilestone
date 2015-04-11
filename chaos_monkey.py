@@ -33,9 +33,11 @@ def chaos_monkey():
         if instance.image_id == image_id:
             destroy_list.append(instance)
 
+    # Select a random instance to be destroyed
+
     destroy_number = random.randint(0, len(destroy_list)-1)
 
-    print(destroy_number)
+    #print(destroy_number)
 
     print("One of the below instances will be destoryed at random !")
 
@@ -46,5 +48,7 @@ def chaos_monkey():
     # Terminating a random instance
 
     conn.terminate_instances(instance_ids=[destroy_instance.id])
+
+
 
 chaos_monkey()
