@@ -12,7 +12,8 @@ def chaos_monkey():
             instance_list.append(instance)
 
     print("Below is the list of available os/ instance id's specify which one to kill?")
+
     for instance in instance_list:
-    print(str(instance.id)+ "    "+ str(instance.instance_type))
+        print(str(instance.id)+ "    "+ str(instance.instance_type))
 
 chaos_monkey()
